@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #calculator {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input[type="number"], input[type="text"] {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <label for="getal1">Voer het eerste getal in:</label>
+        <input type="number" id="getal1"><br>
+        
+        <label for="getal2">Voer het tweede getal in:</label>
+        <input type="number" id="getal2"><br>
+
+        <button onclick="bereken('+')">+</button>
+        <button onclick="bereken('-')">-</button>
+        <button onclick="bereken('*')">*</button>
+        <button onclick="bereken('/')">/</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function bereken(operator) {
+            var getal1 = parseFloat(document.getElementById('getal1').value);
+            var getal2 = parseFloat(document.getElementById('getal2').value);
+            var resultaat;
+
+            if (operator === "+") {
+                resultaat = getal1 + getal2;
+            } else if (operator === "-") {
+                resultaat = getal1 - getal2;
+            } else if (operator === "*") {
+                resultaat = getal1 * getal2;
+            } else if (operator === "/") {
+                resultaat = getal1 / getal2;
+            }
+
+            document.getElementById('result').innerText = getal1 + operator + getal2 + "=" + resultaat;
+        }
+    </script>
+</body>
+</html>

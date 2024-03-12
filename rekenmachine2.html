@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        #result {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <label for="getal1">Voer het eerste getal in:</label>
+    <input type="number" id="getal1"><br>
+    
+    <label for="getal2">Voer het tweede getal in:</label>
+    <input type="number" id="getal2"><br>
+
+    <label for="operator">Voer de operator in (+,-,/ of *):</label>
+    <input type="text" id="operator"><br>
+
+    <button onclick="bereken()">Bereken</button>
+
+    <div id="result"></div>
+
+    <script>
+        function bereken() {
+            var getal1 = parseFloat(document.getElementById('getal1').value);
+            var getal2 = parseFloat(document.getElementById('getal2').value);
+            var operator = document.getElementById('operator').value;
+            var resultaat;
+
+            if (operator === "+") {
+                resultaat = getal1 + getal2;
+            } else if (operator === "-") {
+                resultaat = getal1 - getal2;
+            } else if (operator === "*") {
+                resultaat = getal1 * getal2;
+            } else if (operator === "/") {
+                resultaat = getal1 / getal2;
+            } else {
+                resultaat = "NIKS";
+            }
+
+            if (resultaat === "NIKS") {
+                document.getElementById('result').innerText = "Er is geen geldige operator ingegeven";
+            } else {
+                document.getElementById('result').innerText = getal1 + operator + getal2 + "=" + resultaat;
+            }
+        }
+    </script>
+</body>
+</html>
